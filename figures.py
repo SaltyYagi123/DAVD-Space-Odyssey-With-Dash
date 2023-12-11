@@ -283,15 +283,15 @@ def xgboost_importance_factors(df):
     # Assuming 'df' is your DataFrame
     df['Target'] = (~(df['Status Mission'] == 'Success')).astype('int32')
     # Select features and target
-    X = df[['Company Name', 'Country', 'year', 'month', 'weekday']]  # Assuming ' Rocket' is either dropped or correctly processed elsewhere
+    X = df[['Company Name', 'Country', 'year', 'month', 'weekday']].copy()  # Crear una copia independiente
     y = df['Target']
 
     # Initialize the LabelEncoder
     encoder = LabelEncoder()
 
     # Apply the encoder to each categorical column
-    X['Company Name'] = encoder.fit_transform(df['Company Name'])
-    X['Country'] = encoder.fit_transform(df['Country'])
+    X['Company Name'] = encoder.fit_transform(X['Company Name'])  # Modificar 'X' en lugar de 'df'
+    X['Country'] = encoder.fit_transform(X['Country'])
 
     # Splitting the dataset into the Training set and Test set
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0, stratify=y)

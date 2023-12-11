@@ -17,7 +17,6 @@ from figures import (
 from data_processing import (
     load_and_preprocess_data_astronauts,
     load_and_preprocess_data_missions,
-    generate_wordcloud,
     load_mission_success,
     process_mission_success
 )
@@ -33,7 +32,6 @@ df_astronauts, major_counts, state_counts = load_and_preprocess_data_astronauts(
 df_mission_success = load_mission_success("assets/Space_Corrected.csv")
 
 df_ms = process_mission_success(df_mission_success)
-wordcloud_image = generate_wordcloud(df_astronauts)
 
 spacex_image = html.Img(
     src="assets/spacex.jpeg",
@@ -102,7 +100,7 @@ def create_learn_card():
     )
 
 
-def create_astronaut_card(df_astronauts, state_counts, major_counts, wordcloud_image):
+def create_astronaut_card(df_astronauts, state_counts, major_counts):
     astronaut_card = dbc.CardBody(
         dbc.Row(
             [
@@ -175,8 +173,6 @@ def create_astronaut_card(df_astronauts, state_counts, major_counts, wordcloud_i
                                 "Astronaut by Major: Typical vs. Unusual",
                             ),
                         ),
-                        html.H3("Word Soup de las misiones espaciales"),
-                        wordcloud_image,
                     ],
                     width=10,
                 ),
@@ -523,13 +519,12 @@ def create_tabs(
     df_space_missions,
     state_counts,
     major_counts,
-    wordcloud_image,
     missions_per_country,
     grouped_df,
 ):
     learn_card = create_learn_card()
     astronaut_card = create_astronaut_card(
-        df_astronauts, state_counts, major_counts, wordcloud_image
+        df_astronauts, state_counts, major_counts
     )
     missions_card = create_missions_card(
         missions_per_country, grouped_df, df_space_missions
@@ -558,7 +553,6 @@ def create_layout(
     df_space_missions,
     state_counts,
     major_counts,
-    wordcloud_image,
     missions_per_country,
     grouped_df,
 ):
@@ -593,7 +587,6 @@ def create_layout(
                         df_space_missions,
                         state_counts,
                         major_counts,
-                        wordcloud_image,
                         missions_per_country,
                         grouped_df,
                     ),

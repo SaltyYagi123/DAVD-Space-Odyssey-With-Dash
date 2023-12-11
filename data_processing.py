@@ -2,7 +2,6 @@ import pandas as pd
 import base64
 import matplotlib.pyplot as plt
 from collections import Counter 
-from wordcloud import WordCloud
 from io import BytesIO
 from dash import html
 
@@ -96,40 +95,6 @@ def load_and_preprocess_data_astronauts(file_path):
         print(f"File not found: {file_path}")
         return None
 
-def generate_wordcloud(df):
-    """
-    Generate a word cloud image from the 'Missions' column of the dataframe.
-
-    Parameters:
-    df (DataFrame): Dataframe containing the 'Missions' column.
-
-    Returns:
-    html.Img: HTML image component of the word cloud.
-    """
-    # Split the 'Missions' column into individual missions and count them
-    mission_list = df["Missions"].dropna().str.split(", ").sum()
-    mission_counts = Counter(mission_list)
-
-    # Generate the word cloud from frequencies
-    wordcloud = WordCloud(
-        width=800, height=400, background_color="white"
-    ).generate_from_frequencies(mission_counts)
-
-    # Convert the word cloud image to a string of base64 to display in Dash
-    plt.figure(figsize=(10, 5))
-    plt.imshow(wordcloud, interpolation="bilinear")
-    plt.axis("off")
-    img = BytesIO()
-    plt.savefig(img, format="png", bbox_inches="tight", pad_inches=0)
-    img.seek(0)
-    wordcloud_string = base64.b64encode(img.getvalue()).decode()
-
-    wordcloud_image = html.Img(
-        src="data:image/png;base64,{}".format(wordcloud_string),
-        style={"width": "100%", "height": "auto"},
-    )
-
-    return wordcloud_image
 
 def load_and_preprocess_data_missions(file_path):
     """
