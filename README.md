@@ -1,27 +1,27 @@
-# Aplicación de Visualización de Datos
+# Data Visualization Application
 
-## Descripción del Proyecto
-Esta aplicación de visualización de datos está diseñada para analizar y presentar información detallada sobre la exploración espacial. Se divide en tres secciones principales:
+## Project Description
+This data visualization application is designed to analyze and present detailed information about space exploration. It is divided into three main sections:
 
-### Pestaña 1: Análisis de Astronautas Estadounidenses
-Análisis detallado de los astronautas de EE. UU., incluyendo sus orígenes, educación, evolución de sus carreras y frecuencia de misiones.
+### Tab 1: Analysis of American Astronauts
+Detailed analysis of U.S. astronauts, including their backgrounds, education, career progression, and mission frequency.
 
-### Pestaña 2: Análisis Exploratorio de Misiones Espaciales (Desde 1950)
-Explora datos sobre misiones espaciales desde 1950, incluyendo frecuencia de misiones, misiones por país, comparaciones de costos y éxito de las misiones por compañía.
+### Tab 2: Exploratory Analysis of Space Missions (Since 1950)
+Explores data on space missions since 1950, including mission frequency, missions by country, cost comparisons, and mission success by company.
 
-### Pestaña 3: Estudio de Factores Contribuyentes al Éxito de las Misiones
-Un análisis más profundo sobre los factores que influyen en el éxito de las misiones espaciales, como el país de origen, el día del mes o la compañía.
+### Tab 3: Study of Factors Contributing to Mission Success
+A deeper analysis of the factors influencing the success of space missions, such as country of origin, day of the month, or company.
 
-## Requisitos de Instalación
-Para instalar las bibliotecas necesarias:
+## Installation Requirements
+To install the necessary libraries:
 
 ```
 pip install -r requirements.txt
 ```
-## Para poder ejecutar la aplicacion, abre la carpeta en tu IDE de elección y ejecuta: 
+## To run the application, open the folder in your IDE of choice and execute:
 
 ```
 python app.py
 ```
 
-Espero que os guste!
+Hope you like it!
