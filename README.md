@@ -1,4 +1,8 @@
-# Data Visualization Application
+# Dash App analysing the Space Race since the 1950's
+
+## Project Presentation: 
+Download the PDF to get a quick preview into the data analysis from the Space race since 1950: 
+![Project Presentation](Project_Presentation.pdf)
 
 ## Project Description
 This data visualization application is designed to analyze and present detailed information about space exploration. It is divided into three main sections:
